@@ -2,17 +2,17 @@ section .text
     global BinarySearch
 
 BinarySearch:
-    dec rsi            ; high
-    xor r10, r10         ; low
-    xor rax, rax        ; mid
+    dec rsi                           ; high
+    xor r10, r10                      ; low
+    xor rax, rax                      ; mid
 
 _loop:
-    cmp r10, rsi        
-    jg _error        ; if(low > high) then exit 
-    add rax, rsi         ; mid + high
-    add rax, r10        ; mid + low
-    shr rax, 1        ; mid // 2   div rax, 2
-    cmp DWORD [rdi+(rax*4)],  edx     ;cmp [rdi+rax], rdx
+    cmp r10, rsi
+    jg _error                         ; if(low > high) then exit
+    add rax, rsi                      ; mid + high
+    add rax, r10                      ; mid + low
+    shr rax, 1                        ; mid // 2   div rax, 2
+    cmp DWORD [rdi+(rax*4)],  edx     ; i dont like you
     je _success
     jl _less
     jg _greater
@@ -33,4 +33,4 @@ _success:
 
 _error:
     mov rax, -1
-    ret    
+    ret
