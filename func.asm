@@ -28,7 +28,7 @@ _greater:
     jmp _loop
 
 _success:
-    mov rax, rax
+    mov rax, rax                      ; unneeded i think
     ret
 
 _error:
