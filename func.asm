@@ -4,9 +4,10 @@ section .text
 BinarySearch:
     dec rsi                           ; high
     xor r10, r10                      ; low
-    xor rax, rax                      ; mid
 
 _loop:
+    xor rax, rax                      ; mid && we zero this register because if we dont rax will 
+                                      ; keep adding up after iterations messing with the calculations
     cmp r10, rsi
     jg _error                         ; if(low > high) then exit
     add rax, rsi                      ; mid + high
